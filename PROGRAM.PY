@@ -40,6 +40,20 @@ def tambah_mahasiswa():
     })
     print("Data berhasil ditambah!")
 
+def tampilkan_semua():
+    print("\n=== SEMUA DATA ===")
+    if not data_mahasiswa:
+        print("Data kosong.")
+        return
+    i = 1
+    for mhs in data_mahasiswa:
+        print(f"{i}. NIM: {mhs['nim']}")
+        print(f"   Nama: {mhs['nama']}")
+        print(f"   Jurusan: {mhs['jurusan']}")
+        print(f"   Angkatan: {mhs['angkatan']}")
+        print("-" * 20)
+        i += 1
+
 
 
 
