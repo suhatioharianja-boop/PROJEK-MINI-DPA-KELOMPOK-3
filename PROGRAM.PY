@@ -54,6 +54,31 @@ def tampilkan_semua():
         print("-" * 20)
         i += 1
 
+def cari_data():
+    print("\n=== CARI DATA ===")
+    keyword = input("Cari (NIM/Nama): ").lower()
+    hasil = [mhs for mhs in data_mahasiswa if keyword in mhs['nim'] or keyword in mhs['nama'].lower()]
+    if not hasil:
+        print("Data tidak ditemukan.")
+        return
+    print(f"Ditemukan {len(hasil)} data:")
+    i = 1
+    for mhs in hasil:
+        print(f"{i}. NIM: {mhs['nim']}, Nama: {mhs['nama']}")
+        i += 1
+
+def hapus_data():
+    print("\n=== HAPUS DATA ===")
+    nim_hapus = input("NIM yang dihapus: ")
+    for i in range(len(data_mahasiswa)):
+        if data_mahasiswa[i]['nim'] == nim_hapus:
+            if input(f"Hapus {data_mahasiswa[i]['nama']}? (y/n): ").lower() == 'y':
+                data_mahasiswa.pop(i)
+                print("Data dihapus!")
+            return
+    print("NIM tidak ditemukan.")
+
+
 
 
 
