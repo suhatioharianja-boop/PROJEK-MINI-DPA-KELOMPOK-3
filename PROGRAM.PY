@@ -125,6 +125,30 @@ def edit_data():
             
     print("NPM tidak ditemukan.")
 
+def simpan_ke_file():
+    print("\n=== SIMPAN DATA KE FILE ===")
+    if not data_mahasiswa:
+        print("Tidak ada data untuk disimpan!")
+        return
+
+    nama_file = input("Masukkan nama file: ").strip()
+    if not nama_file.endswith('.txt'):
+        nama_file += '.txt'
+
+    # Asumsi: direktori dapat ditulis dan tidak ada error
+    with open(nama_file, 'w', encoding='utf-8') as file:
+        file.write("="*50 + "\nDATA MAHASISWA\n" + "="*50 + "\n\n")
+        i = 1
+        for mhs in data_mahasiswa:
+            file.write(f"DATA KE-{i}\nNPM: {mhs['npm']}\nNama: {mhs['nama']}\n")
+            file.write(f"Jurusan: {mhs['jurusan']}\nAngkatan: {mhs['angkatan']}\n" + "-"*30 + "\n\n")
+            i += 1
+        file.write(f"\nTotal Data: {len(data_mahasiswa)} mahasiswa\n")
+        file.write(f"Tanggal: {__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+
+    print(f"Data berhasil disimpan ke '{nama_file}'!")
+
+
 
 
 
