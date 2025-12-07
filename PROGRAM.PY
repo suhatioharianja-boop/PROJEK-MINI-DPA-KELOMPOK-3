@@ -30,6 +30,17 @@ def validasi_jurusan():
             return jurusan
         print("Masukan Jurusan yang Valid")
 
+def tambah_mahasiswa():
+    print("\n=== TAMBAH DATA ===")
+    data_mahasiswa.append({
+        'nim': validasi_nim(),
+        'nama': validasi_nama(),
+        'jurusan': validasi_jurusan(),
+        'angkatan': validasi_angkatan()
+    })
+    print("Data berhasil ditambah!")
+
+
 
 
 
