@@ -148,6 +148,37 @@ def simpan_ke_file():
 
     print(f"Data berhasil disimpan ke '{nama_file}'!")
 
+def main():
+    menu = {
+        '1': tambah_mahasiswa,
+        '2': tampilkan_semua,
+        '3': cari_data,
+        '4': edit_data,
+        '5': hapus_data,
+        '6': simpan_ke_file
+    }
+    
+    while True:
+        print("\n" + "="*40 + "\nPROGRAM MANAJEMEN DATA MAHASISWA\n" + "="*40)
+        for i in range(1, 7): 
+            menu_text = [
+                "Tambah Data", "Tampilkan Semua", "Cari Data", 
+                "Edit Data", "Hapus Data", "Simpan ke File"
+            ]
+            print(f"{i}. {menu_text[i-1]}")
+        print("0. Keluar")
+        
+        pilihan = input("Pilih menu: ")
+        if pilihan == '0':
+            if data_mahasiswa and input("Simpan data sebelum keluar? (y/n): ").lower() == 'y':
+                simpan_ke_file()
+            print("Program selesai.")
+            break
+        menu.get(pilihan, lambda: print("Pilihan tidak valid."))()
+
+main()
+
+
 
 
 
