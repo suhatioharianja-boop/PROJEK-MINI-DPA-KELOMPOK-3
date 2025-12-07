@@ -7,6 +7,14 @@ def validasi_nim():
             return nim
         print("NIM hanya angka atau sudah terdaftar")
 
+def validasi_nama():
+    while True:
+        nama = input("Nama: ").strip()
+        if nama.replace(" ", "").isalpha():
+            return nama
+        print("Nama hanya huruf")
+
+
 
 
 
