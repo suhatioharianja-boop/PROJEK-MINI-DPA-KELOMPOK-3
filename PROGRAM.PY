@@ -78,6 +78,52 @@ def hapus_data():
             return
     print("NIM tidak ditemukan.")
 
+def edit_data():
+    print("\n=== EDIT DATA ===")
+    npm_cari = input("NPM yang diedit: ")
+    for mhs in data_mahasiswa:
+        if mhs['npm'] == npm_cari:
+            print(f"Data ditemukan: {mhs['nama']}")
+            
+            # Tampilkan menu edit
+            print("\nPilih data yang akan diedit:")
+            print("1. Nama")
+            print("2. Jurusan")
+            print("3. Angkatan")
+            print("4. Semua data")
+            print("5. Batal")
+            
+            pilihan_edit = input("Pilih (1-5): ")
+            
+            if pilihan_edit == '1':
+                print(f"\nEdit Nama (saat ini: {mhs['nama']})")
+                mhs['nama'] = validasi_nama()
+                
+            elif pilihan_edit == '2':
+                print(f"\nEdit Jurusan (saat ini: {mhs['jurusan']})")
+                mhs['jurusan'] = validasi_jurusan()
+                
+            elif pilihan_edit == '3':
+                print(f"\nEdit Angkatan (saat ini: {mhs['angkatan']})")
+                mhs['angkatan'] = validasi_angkatan()
+                
+            elif pilihan_edit == '4':
+                print("\nEdit semua data:")
+                mhs['nama'] = validasi_nama()
+                mhs['jurusan'] = validasi_jurusan()
+                mhs['angkatan'] = validasi_angkatan()
+                
+            elif pilihan_edit == '5':
+                print("Edit data dibatalkan.")
+                return
+            else:
+                print("Pilihan tidak valid.")
+                return
+                
+            print("Data berhasil diupdate!")
+            return
+            
+    print("NPM tidak ditemukan.")
 
 
 
